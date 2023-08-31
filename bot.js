@@ -22,6 +22,23 @@ export const turn = ({ minesRemaining, opponentUsedRadar }) => {
   state.minesRemaining = minesRemaining;
   state.opponentUsedRadar = opponentUsedRadar;
 
+  if (turn === 1) {
+    move(0, 0);
+  } else if (turn === 2) {
+    move(state.gridSize - 1, 0);
+  } else if (turn === 3) {
+    move(state.gridSize - 1, state.gridSize - 1);
+  } else if (turn === 4) {
+    move(0, state.gridSize - 1);
+  }else if(turn ===5){
+    return layMine(state.position.x+=3,state.position.y+=3)
+  }
+  else if(turn===6){
+    return layMine(state.position.x+=4,state.position.y+=7)
+  }
+  else if(turn===7){
+    return layMine(state.position.x+=1,state.position.y+=1)
+  }
   return move(state.position.x, state.position.y);
 };
 
