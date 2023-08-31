@@ -25,19 +25,23 @@ export const turn = ({ minesRemaining, opponentUsedRadar }) => {
   if (turn === 1) {
     state.position.x=0;
     state.position.y =0;
+    state.mineRemaining+=1;
     return move(state.position.x, state.position.y)
   } else if (turn === 2) {
     state.position.x=state.gridSize - 1;
     state.position.y =0;
+    state.mineRemaining+=1;
     return move(state.position.x, state.position.y);
    
   } else if (turn === 3) {
     state.position.x=state.gridSize - 1;
     state.position.y =state.gridSize - 1;
+    state.mineRemaining+=1;
     return move(state.position.x, state.position.y);
   } else if (turn === 4) {
     state.position.x=0;
     state.position.y =state.gridSize - 1;
+    state.mineRemaining+=1;
     return move(state.position.x, state.position.y);
 
   }else if(turn ===5){
