@@ -23,13 +23,23 @@ export const turn = ({ minesRemaining, opponentUsedRadar }) => {
   state.opponentUsedRadar = opponentUsedRadar;
 
   if (turn === 1) {
-    move(0, 0);
+    state.position.x=0;
+    state.position.y =0;
+    return move(state.position.x, state.position.y);
   } else if (turn === 2) {
-    move(state.gridSize - 1, 0);
+    state.position.x=state.gridSize - 1;
+    state.position.y =0;
+    return move(state.position.x, state.position.y);
+   
   } else if (turn === 3) {
-    move(state.gridSize - 1, state.gridSize - 1);
+    state.position.x=state.gridSize - 1;
+    state.position.y =state.gridSize - 1;
+    return move(state.position.x, state.position.y);
   } else if (turn === 4) {
-    move(0, state.gridSize - 1);
+    state.position.x=0;
+    state.position.y =state.gridSize - 1;
+    return move(state.position.x, state.position.y);
+
   }else if(turn ===5){
     return layMine(state.position.x+=3,state.position.y+=3)
   }
@@ -51,7 +61,7 @@ export const turn = ({ minesRemaining, opponentUsedRadar }) => {
   else if(turn===11){
     return layMine(state.position.x+=3,state.position.y+=5)
   }
-  return move(state.position.x, state.position.y);
+  
 };
 
 export const handleRadar = ({ radar }) => {
